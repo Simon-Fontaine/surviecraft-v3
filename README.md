@@ -31,8 +31,9 @@
   apt update -y && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && apt install -y nodejs git
 
   git clone https://github.com/Simon-Fontaine/surviecraft-v3.git
-  cd surviecraft-v3
+  npm install pm2 -g
 
+  cd surviecraft-v3
   npm i
 ```
 
