@@ -63,13 +63,6 @@ module.exports = {
         .setName("3eme-nombre-votes")
         .setDescription("Le nombre de votes du 3eme gagnant")
         .setRequired(true)
-    )
-    .addChannelOption((option) =>
-      option
-        .setName("channel")
-        .setDescription("Le channel où le message va être envoyé")
-        .setRequired(true)
-        .addChannelTypes(ChannelType.GuildText)
     ),
 
   async execute(interaction) {
@@ -95,7 +88,7 @@ module.exports = {
     const deuxièmeNombresVotes = interaction.options.getInteger("2eme-nombre-votes");
     const troisièmeNombresVotes = interaction.options.getInteger("3eme-nombre-votes");
 
-    const ANNOUNCEMENT_CHANNEL = interaction.options.getChannel("channel");
+    const ANNOUNCEMENT_CHANNEL = await guild.channels.cache.get(IDs.announcementChannel);
 
     interaction.editReply({
       content: `Votre annonce va être envoyée dans ${ANNOUNCEMENT_CHANNEL}`,

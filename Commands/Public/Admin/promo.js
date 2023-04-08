@@ -31,13 +31,6 @@ module.exports = {
         .setName("jour-mois")
         .setDescription("Jusqu'à quand la réduction est valable")
         .setRequired(true)
-    )
-    .addChannelOption((option) =>
-      option
-        .setName("channel")
-        .setDescription("Le channel où le message va être envoyé")
-        .setRequired(true)
-        .addChannelTypes(ChannelType.GuildText)
     ),
 
   async execute(interaction) {
@@ -56,7 +49,8 @@ module.exports = {
     const MONTANT_REDUCTION = options.getInteger("montant-reduction");
     const CODE_PROMO = options.getString("code-promo");
     const JOUR_MOIS = options.getString("jour-mois");
-    const ANNOUNCEMENT_CHANNEL = options.getChannel("channel");
+
+    const ANNOUNCEMENT_CHANNEL = await guild.channels.cache.get(IDs.announcementChannel);
 
     const SC_EMOJIS = guild.emojis.cache.find((emoji) => emoji.name === "SC");
 
