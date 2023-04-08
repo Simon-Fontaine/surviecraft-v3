@@ -17,7 +17,7 @@ module.exports = {
       try {
         const { data } = await axios.get("https://api.mcsrvstat.us/2/play.surviecraft.fr");
 
-        if (data.offline) {
+        if (data.online === false) {
           if (voiceChannel.name !== `En jeu: Offline`) {
             voiceChannel.setName(`En jeu: Offline`);
           }
