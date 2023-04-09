@@ -7,6 +7,9 @@ const client = new Client({
   partials: [User, Channel, Message, GuildMember, Reaction, GuildScheduledEvent, ThreadMember],
 });
 
+const chalk = require("chalk");
+const log = console.log;
+
 const { loadEvents } = require("./Handlers/eventHandler");
 
 client.config = require("./token.json");
@@ -15,9 +18,22 @@ client.subCommands = new Collection();
 client.events = new Collection();
 
 const { connect } = require("mongoose");
-connect(client.config.mongoURI, {}).then(() =>
-  console.log("\x1b[32m%s\x1b[0m", "[DATA] Connected to MongoDB.")
-);
+const startTime = Date.now();
+connect(client.config.mongoURI, {}).then(() => {
+  const elapsedTime = Date.now() - startTime;
+
+  const timer = elapsedTime.toFixed(2);
+
+  const time = new Date().toLocaleTimeString();
+  const date = new Date().toLocaleDateString();
+  log(chalk.yellowBright.bold(`[TIME]`) + chalk.whiteBright(` ${date} | ${time}`));
+  log(
+    chalk.blueBright.bold("[INFO]") +
+      chalk.whiteBright(` Connected to MongoDB in `) +
+      chalk.cyanBright.bold(timer) +
+      chalk.whiteBright(`ms\n`)
+  );
+});
 
 loadEvents(client);
 

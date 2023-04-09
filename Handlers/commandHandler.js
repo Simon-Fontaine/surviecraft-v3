@@ -1,6 +1,9 @@
 async function loadCommands(client) {
   const { loadFiles } = require("../Functions/fileLoader");
-  console.time("Commands Loaded");
+  const chalk = require("chalk");
+  const log = console.log;
+
+  const startTime = Date.now();
 
   client.commands = new Map();
   client.subCommands = new Map();
@@ -33,12 +36,20 @@ async function loadCommands(client) {
 
   client.application.commands.set(commandsArray);
 
+  const elapsedTime = Date.now() - startTime;
+
+  const timer = elapsedTime.toFixed(2);
+
   console.table(table, ["Command", "Status"]);
   const time = new Date().toLocaleTimeString();
   const date = new Date().toLocaleDateString();
-  console.log("\x1b[33m%s\x1b[0m", `[TIME]  ${date} | ${time}`);
-  console.log("\x1b[32m%s\x1b[0m", "[INFO] Loaded Commands.");
-  return console.timeEnd("Commands Loaded");
+  log(chalk.yellowBright.bold(`[TIME]`) + chalk.whiteBright(` ${date} | ${time}`));
+  log(
+    chalk.blueBright.bold(`[INFO]`) +
+      chalk.whiteBright(` Loaded Commands in `) +
+      chalk.cyanBright.bold(timer) +
+      chalk.whiteBright(`ms\n`)
+  );
 }
 
 module.exports = { loadCommands };

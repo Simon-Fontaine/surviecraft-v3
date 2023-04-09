@@ -1,7 +1,9 @@
-const { loadFiles } = require("../Functions/fileLoader");
-
 async function loadEvents(client) {
-  console.time("Events Loaded");
+  const { loadFiles } = require("../Functions/fileLoader");
+  const chalk = require("chalk");
+  const log = console.log;
+
+  const startTime = Date.now();
 
   client.events = new Map();
   const events = new Array();
@@ -23,12 +25,20 @@ async function loadEvents(client) {
     }
   }
 
+  const elapsedTime = Date.now() - startTime;
+
+  const timer = elapsedTime.toFixed(2);
+
   console.table(events, ["Event", "Status"]);
   const time = new Date().toLocaleTimeString();
   const date = new Date().toLocaleDateString();
-  console.log("\x1b[33m%s\x1b[0m", `[TIME]  ${date} | ${time}`);
-  console.log("\x1b[32m%s\x1b[0m", "[INFO] Loaded Events.");
-  console.timeEnd("Events Loaded");
+  log(chalk.yellowBright.bold(`[TIME]`) + chalk.whiteBright(` ${date} | ${time}`));
+  log(
+    chalk.blueBright.bold(`[INFO]`) +
+      chalk.whiteBright(` Loaded Events in `) +
+      chalk.cyanBright.bold(timer) +
+      chalk.whiteBright(`ms\n`)
+  );
 }
 
 module.exports = { loadEvents };
