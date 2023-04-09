@@ -34,6 +34,9 @@ async function loadCommands(client) {
   client.application.commands.set(commandsArray);
 
   console.table(table, ["Command", "Status"]);
+  const time = new Date().toLocaleTimeString();
+  const date = new Date().toLocaleDateString();
+  console.log("\x1b[33m%s\x1b[0m", `[TIME]  ${date} | ${time}`);
   console.log("\x1b[32m%s\x1b[0m", "[INFO] Loaded Commands.");
   return console.timeEnd("Commands Loaded");
 }

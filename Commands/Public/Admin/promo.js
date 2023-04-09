@@ -7,6 +7,7 @@ const {
   ActionRowBuilder,
 } = require("@discordjs/builders");
 
+const IDs = require("../../../ids.json");
 const config = require("../../../config.json");
 const { isHighStaff } = require("../../../Functions/roleChecker");
 

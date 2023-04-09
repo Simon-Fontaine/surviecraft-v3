@@ -24,6 +24,9 @@ async function loadEvents(client) {
   }
 
   console.table(events, ["Event", "Status"]);
+  const time = new Date().toLocaleTimeString();
+  const date = new Date().toLocaleDateString();
+  console.log("\x1b[33m%s\x1b[0m", `[TIME]  ${date} | ${time}`);
   console.log("\x1b[32m%s\x1b[0m", "[INFO] Loaded Events.");
   console.timeEnd("Events Loaded");
 }
