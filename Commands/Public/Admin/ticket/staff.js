@@ -66,22 +66,22 @@ module.exports = {
               {
                 label: "Problème Mot De Passe",
                 description: "Perdu votre mot de passe ? C'est ici !",
-                value: "Problème Mot De Passe",
+                value: "Staff - Problème Mot De Passe",
               },
               {
                 label: "Problème En Jeu",
                 description: "Problème(s) sur notre serveur Minecraft ? C'est ici !",
-                value: "Problème En Jeu",
+                value: "Staff - Problème En Jeu",
               },
               {
                 label: "Problème Site Web",
                 description: "Problème(s) sur note site web ? C'est ici !",
-                value: "Problème Site Web",
+                value: "Staff - Problème Site Web",
               },
               {
                 label: "Problème Discord",
                 description: "Problème(s) sur notre serveur Discord ? C'est ici !",
-                value: "Problème Discord",
+                value: "Staff - Problème Discord",
               },
             ],
           }),

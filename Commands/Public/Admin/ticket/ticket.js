@@ -9,7 +9,7 @@ module.exports = {
     .addSubcommand((subcommand) =>
       subcommand
         .setName("joueur")
-        .setDescription("Ban un membre de votre serveur")
+        .setDescription("Définir les paramètres des tickets joueurs")
         .addChannelOption((option) =>
           option
             .setName("channel")
@@ -41,7 +41,7 @@ module.exports = {
     .addSubcommand((subcommand) =>
       subcommand
         .setName("staff")
-        .setDescription("Unban un membre de votre serveur")
+        .setDescription("Définir les paramètres des tickets staff")
         .addChannelOption((option) =>
           option
             .setName("channel")

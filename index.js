@@ -16,6 +16,7 @@ client.config = require("./token.json");
 client.commands = new Collection();
 client.subCommands = new Collection();
 client.events = new Collection();
+client.setMaxListeners(0);
 
 const { connect } = require("mongoose");
 const startTime = Date.now();

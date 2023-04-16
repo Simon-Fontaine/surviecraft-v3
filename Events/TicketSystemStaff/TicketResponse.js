@@ -30,10 +30,10 @@ module.exports = {
     if (!data) return;
     if (
       ![
-        "Problème Mot De Passe",
-        "Problème En Jeu",
-        "Problème Site Web",
-        "Problème Discord",
+        "Staff - Problème Mot De Passe",
+        "Staff - Problème En Jeu",
+        "Staff - Problème Site Web",
+        "Staff - Problème Discord",
       ].includes(customId)
     )
       return;
