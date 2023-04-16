@@ -66,3 +66,5 @@ Une documentation complète du bot discord peut être trouvée [juste ici](https
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+- Si vous décidez d'utiliser ce code, veuillez ajouter le [lien](https://github.com/Simon-Fontaine/surviecraft-v3) GitHub dans la bio du bot Discord
