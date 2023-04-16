@@ -27,10 +27,10 @@ module.exports = {
 
     if (
       ![
-        "Problème Mot De Passe",
-        "Problème En Jeu",
-        "Problème Site Web",
-        "Problème Discord",
+        "Joueur - Problème Mot De Passe",
+        "Joueur - Problème En Jeu",
+        "Joueur - Problème Site Web",
+        "Joueur - Problème Discord",
       ].includes(interactionValue)
     ) {
       return interaction.reply({
@@ -63,7 +63,7 @@ module.exports = {
 
     let usernameInput;
 
-    if (interactionValue === "Problème Site Web") {
+    if (interactionValue === "Joueur - Problème Site Web") {
       usernameInput = new TextInputBuilder()
         .setCustomId("username_input")
         .setLabel("L'addresse E-Mail associée au compte boutique")
@@ -99,9 +99,9 @@ module.exports = {
     const secondActionRow = new ActionRowBuilder().setComponents(questionInput);
     const thirdActionRow = new ActionRowBuilder().setComponents(ipInput);
 
-    if (interactionValue === "Problème Discord") {
+    if (interactionValue === "Joueur - Problème Discord") {
       modal.setComponents(secondActionRow);
-    } else if (interactionValue === "Problème Mot De Passe") {
+    } else if (interactionValue === "Joueur - Problème Mot De Passe") {
       modal.setComponents(firstActionRow, thirdActionRow, secondActionRow);
     } else {
       modal.setComponents(firstActionRow, secondActionRow);

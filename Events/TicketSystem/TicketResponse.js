@@ -30,10 +30,10 @@ module.exports = {
     if (!data) return;
     if (
       ![
-        "Problème Mot De Passe",
-        "Problème En Jeu",
-        "Problème Site Web",
-        "Problème Discord",
+        "Joueur - Problème Mot De Passe",
+        "Joueur - Problème En Jeu",
+        "Joueur - Problème Site Web",
+        "Joueur - Problème Discord",
       ].includes(customId)
     )
       return;
@@ -119,11 +119,11 @@ module.exports = {
           let question;
           let userIp;
 
-          if (customId !== "Problème Discord") {
+          if (customId !== "Joueur - Problème Discord") {
             identifiant = interaction.fields.getTextInputValue("username_input");
           }
           question = interaction.fields.getTextInputValue("question_input");
-          if (customId === "Problème Mot De Passe") {
+          if (customId === "Joueur - Problème Mot De Passe") {
             userIp = interaction.fields.getTextInputValue("ip_input");
           }
 
