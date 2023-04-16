@@ -95,10 +95,11 @@ module.exports = {
           components: [actionRow],
         })
         .catch((error) => {
-          return;
+          console.log(error);
+          return interaction.reply({ content: "Une erreur est survenue.", ephemeral: true });
         });
 
-      return interaction.reply({
+      interaction.reply({
         embeds: [
           new EmbedBuilder()
             .setDescription("Le système de ticket a été créé avec succès.")
@@ -109,8 +110,8 @@ module.exports = {
     } catch (err) {
       console.log(err);
       const errEmbed = new EmbedBuilder().setColor(0xff0000).setDescription(config.ticketError);
-      return interaction.reply({ embeds: [errEmbed], ephemeral: true }).catch((error) => {
-        return;
+      interaction.reply({ embeds: [errEmbed], ephemeral: true }).catch((error) => {
+        console.log(error);
       });
     }
   },
