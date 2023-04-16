@@ -1,43 +1,14 @@
-const { PermissionFlagsBits, ChannelType } = require("discord.js");
-const {
-  SlashCommandBuilder,
-  EmbedBuilder,
-  StringSelectMenuBuilder,
-  ActionRowBuilder,
-} = require("@discordjs/builders");
-const TicketSetup = require("../../../Schemas/TicketSetup");
-const TicketNumber = require("../../../Schemas/TicketNumber");
-const config = require("../../../config.json");
+const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require("@discordjs/builders");
+const TicketSetup = require("../../../../Schemas/TicketSetup");
+const TicketNumber = require("../../../../Schemas/TicketNumber");
+const config = require("../../../../config.json");
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("ticket")
-    .setDescription("Une commande pour configurer le système de tickets")
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .addChannelOption((option) =>
-      option
-        .setName("channel")
-        .setDescription("Sélectionnez le channel dans lequel les tickets doivent être créés")
-        .setRequired(true)
-        .addChannelTypes(ChannelType.GuildText)
-    )
-    .addChannelOption((option) =>
-      option
-        .setName("category")
-        .setDescription("Sélectionnez le channel parent où les tickets doivent être créés")
-        .setRequired(true)
-        .addChannelTypes(ChannelType.GuildCategory)
-    )
-    .addChannelOption((option) =>
-      option
-        .setName("transcripts")
-        .setDescription("Sélectionnez le channel où les transcriptions doivent être envoyées")
-        .setRequired(true)
-        .addChannelTypes(ChannelType.GuildText)
-    )
-    .addRoleOption((option) =>
-      option.setName("everyone").setDescription("Sélectionnez le rôle everyone").setRequired(true)
-    ),
+  subCommand: "ticket.joueur",
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   */
   async execute(interaction) {
     const { guild, options } = interaction;
     try {
