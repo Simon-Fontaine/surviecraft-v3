@@ -39,9 +39,6 @@ module.exports = {
     const data = await TicketSchema.findOne({ GuildID: guild.id, ChannelID: channel.id });
     if (!data) return;
 
-    guild.members.cache.get(data.MemberID);
-    guild.members.cache.get(data.OwnerID);
-
     if (!isStaff(member)) {
       return interaction.reply({ embeds: [nopermissionsEmbed], ephemeral: true }).catch((error) => {
         return;
