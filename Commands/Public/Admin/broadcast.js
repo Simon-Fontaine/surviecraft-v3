@@ -31,7 +31,7 @@ module.exports = {
     const broadcastMessage = new TextInputBuilder()
       .setCustomId("broadcast_message_input")
       .setLabel("Entrez votre message : (avec Markdown)")
-      .setMaxLength(1000)
+      .setMaxLength(2000)
       .setMinLength(15)
       .setStyle(TextInputStyle.Paragraph);
 
