@@ -1,7 +1,7 @@
 const IDs = require("../../ids.json");
 const config = require("../../config.json");
 const RolesMenuSchema = require("../../Schemas/RolesMenuMessage");
-const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require("@discordjs/builders");
+const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require("discord.js");
 
 module.exports = {
   name: "ready",

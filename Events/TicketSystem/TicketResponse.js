@@ -2,10 +2,11 @@ const {
   ChatInputCommandInteraction,
   ChannelType,
   ButtonStyle,
-  ButtonInteraction,
+  EmbedBuilder,
+  ButtonBuilder,
+  ActionRowBuilder,
   PermissionFlagsBits,
 } = require("discord.js");
-const { EmbedBuilder, ButtonBuilder, ActionRowBuilder } = require("@discordjs/builders");
 
 const TicketSchema = require("../../Schemas/Ticket");
 const TicketSetup = require("../../Schemas/TicketSetup");

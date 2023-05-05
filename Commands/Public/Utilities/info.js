@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { ChatInputCommandInteraction } = require("discord.js");
+const { ChatInputCommandInteraction, SlashCommandBuilder } = require("discord.js");
 const IDs = require("../../../ids.json");
 
 const choices = ["ip", "wiki", "invitations", "regles-ig", "regles-ds", "boost", "aide"];

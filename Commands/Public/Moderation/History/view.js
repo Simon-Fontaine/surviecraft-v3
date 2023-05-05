@@ -1,5 +1,4 @@
-const { EmbedBuilder } = require("@discordjs/builders");
-const { ChatInputCommandInteraction, ButtonStyle } = require("discord.js");
+const { ChatInputCommandInteraction, ButtonStyle, EmbedBuilder } = require("discord.js");
 const Pagination = require("customizable-discordjs-pagination");
 const historySchema = require("../../../../Schemas/History.js");
 const config = require("../../../../config.json");

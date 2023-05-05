@@ -1,5 +1,9 @@
-const { EmbedBuilder, SlashCommandBuilder } = require("@discordjs/builders");
-const { ChatInputCommandInteraction, PermissionFlagsBits } = require("discord.js");
+const {
+  ChatInputCommandInteraction,
+  PermissionFlagsBits,
+  EmbedBuilder,
+  SlashCommandBuilder,
+} = require("discord.js");
 const historySchema = require("../../../Schemas/History.js");
 const config = require("../../../config.json");
 const IDs = require("../../../ids.json");

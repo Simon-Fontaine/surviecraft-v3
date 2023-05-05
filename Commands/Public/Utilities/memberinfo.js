@@ -1,5 +1,9 @@
-const { ChatInputCommandInteraction, AttachmentBuilder } = require("discord.js");
-const { SlashCommandBuilder, EmbedBuilder } = require("@discordjs/builders");
+const {
+  ChatInputCommandInteraction,
+  AttachmentBuilder,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} = require("discord.js");
 
 const { profileImage } = require("discord-arts");
 

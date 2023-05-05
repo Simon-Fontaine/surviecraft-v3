@@ -1,5 +1,4 @@
-const { EmbedBuilder } = require("@discordjs/builders");
-const { ChatInputCommandInteraction } = require("discord.js");
+const { ChatInputCommandInteraction, EmbedBuilder } = require("discord.js");
 const config = require("../../../../config.json");
 const IDs = require("../../../../ids.json");
 const emojis = require("../../../../emojis.json");

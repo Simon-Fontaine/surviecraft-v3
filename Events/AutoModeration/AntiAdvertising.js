@@ -1,5 +1,4 @@
-const { EmbedBuilder } = require("@discordjs/builders");
-const { Message, RESTJSONErrorCodes } = require("discord.js");
+const { Message, RESTJSONErrorCodes, EmbedBuilder } = require("discord.js");
 const userAutoModerationSchema = require("../../Schemas/AutoModeration");
 const historySchema = require("../../Schemas/History.js");
 const config = require("../../config.json");

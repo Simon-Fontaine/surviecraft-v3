@@ -1,11 +1,13 @@
-const { ChatInputCommandInteraction, TextInputStyle, PermissionFlagsBits } = require("discord.js");
 const {
+  ChatInputCommandInteraction,
+  TextInputStyle,
+  PermissionFlagsBits,
   EmbedBuilder,
   UserSelectMenuBuilder,
   ModalBuilder,
   TextInputBuilder,
   ActionRowBuilder,
-} = require("@discordjs/builders");
+} = require("discord.js");
 
 const TicketSchema = require("../../Schemas/Ticket");
 const TicketSetup = require("../../Schemas/TicketSetup");

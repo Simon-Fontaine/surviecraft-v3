@@ -1,4 +1,4 @@
-const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require("@discordjs/builders");
+const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require("discord.js");
 const TicketSetup = require("../../../../Schemas/TicketSetupStaff");
 const TicketNumber = require("../../../../Schemas/TicketNumberStaff");
 const config = require("../../../../config.json");

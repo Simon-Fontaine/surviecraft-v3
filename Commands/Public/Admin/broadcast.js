@@ -14,7 +14,7 @@ const { isHighStaff } = require("../../../Functions/roleChecker");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("broadcast")
-    .setDescription("Envoie le message des codes promos dans le sallon annonces")
+    .setDescription("Envoie un message dans le sallon annonces")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels),
 
   async execute(interaction) {

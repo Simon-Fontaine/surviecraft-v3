@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { ChatInputCommandInteraction } = require("discord.js");
+const { ChatInputCommandInteraction, SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder().setName("help").setDescription("Documentation du bot Discord !"),

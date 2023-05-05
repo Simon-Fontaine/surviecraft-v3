@@ -1,5 +1,9 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("@discordjs/builders");
-const { ChatInputCommandInteraction, PermissionFlagsBits } = require("discord.js");
+const {
+  ChatInputCommandInteraction,
+  PermissionFlagsBits,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} = require("discord.js");
 const config = require("../../../config.json");
 const { isStaff } = require("../../../Functions/roleChecker.js");
 

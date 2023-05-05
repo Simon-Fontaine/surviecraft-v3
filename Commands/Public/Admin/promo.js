@@ -1,11 +1,11 @@
-const { PermissionFlagsBits, ChannelType, ButtonStyle } = require("discord.js");
 const {
   SlashCommandBuilder,
   EmbedBuilder,
   ButtonBuilder,
-  StringSelectMenuBuilder,
   ActionRowBuilder,
-} = require("@discordjs/builders");
+  PermissionFlagsBits,
+  ButtonStyle,
+} = require("discord.js");
 
 const IDs = require("../../../ids.json");
 const config = require("../../../config.json");

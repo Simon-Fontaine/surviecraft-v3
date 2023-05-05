@@ -1,4 +1,4 @@
-const { ChatInputCommandInteraction, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
+const { ChatInputCommandInteraction, EmbedBuilder } = require("discord.js");
 
 const config = require("../../config.json");
 const IDs = require("../../ids.json");

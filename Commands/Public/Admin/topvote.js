@@ -1,11 +1,4 @@
-const { PermissionFlagsBits, ChannelType, AttachmentBuilder, ButtonStyle } = require("discord.js");
-const {
-  SlashCommandBuilder,
-  EmbedBuilder,
-  ButtonBuilder,
-  StringSelectMenuBuilder,
-  ActionRowBuilder,
-} = require("@discordjs/builders");
+const { PermissionFlagsBits, SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 const config = require("../../../config.json");
 const IDs = require("../../../ids.json");
@@ -14,7 +7,7 @@ const { isHighStaff } = require("../../../Functions/roleChecker");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("topvote")
-    .setDescription("Envoie le message des codes promos dans le sallon annonces")
+    .setDescription("Envoie le message des tops votes dans le sallon annonces")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
     .addUserOption((option) =>
       option.setName("1er-gagnant").setDescription("Le 1er gagnant").setRequired(true)

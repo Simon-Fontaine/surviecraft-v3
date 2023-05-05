@@ -1,7 +1,6 @@
 const IDs = require("../../ids.json");
 const RulesSchema = require("../../Schemas/RulesMessage");
-const { ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require("@discordjs/builders");
-const { ButtonStyle } = require("discord.js");
+const { ButtonStyle, ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "ready",
