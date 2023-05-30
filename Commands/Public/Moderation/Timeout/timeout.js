@@ -4,7 +4,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("timeout")
     .setDescription("Gérer les timeouts de votre serveur")
-    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
+    .setDefaultMemberPermissions(PermissionFlagsBits.MuteMembers)
     .addSubcommand((subcommand) =>
       subcommand
         .setName("add")

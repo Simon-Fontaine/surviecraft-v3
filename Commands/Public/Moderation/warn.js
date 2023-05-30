@@ -15,7 +15,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("warn")
     .setDescription("Avertir un membre de votre serveur")
-    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
+    .setDefaultMemberPermissions(PermissionFlagsBits.MuteMembers)
     .addUserOption((option) =>
       option
         .setName("user")

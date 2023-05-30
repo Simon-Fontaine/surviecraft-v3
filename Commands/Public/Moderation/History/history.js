@@ -4,7 +4,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("history")
     .setDescription("Gérer les cas de modération de votre serveur")
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
+    .setDefaultMemberPermissions(PermissionFlagsBits.MuteMembers)
     .addSubcommand((subcommand) =>
       subcommand
         .setName("view")
