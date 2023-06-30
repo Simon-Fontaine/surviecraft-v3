@@ -48,7 +48,7 @@ module.exports = {
     }
 
     const reason = interaction.fields.getTextInputValue("ticket-joueur-close-modal-reason");
-    const fileName = `${channel.id}.html`;
+    const fileName = `${channel.id}-${Date.now()}.html`;
     const filePath = path.join("/var/www/", fileName);
 
     const file = await discordTranscripts.createTranscript(channel, {
