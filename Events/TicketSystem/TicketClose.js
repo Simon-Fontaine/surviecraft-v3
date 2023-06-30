@@ -54,6 +54,7 @@ module.exports = {
     const file = await discordTranscripts.createTranscript(channel, {
       returnType: "buffer",
       filename: fileName,
+      saveImages: true,
       poweredBy: false,
     });
 
