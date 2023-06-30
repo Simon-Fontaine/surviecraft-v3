@@ -1,4 +1,7 @@
 const { ChatInputCommandInteraction, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
+const fs = require("fs");
+const path = require("path");
+const discordTranscripts = require("discord-html-transcripts");
 const dayjs = require("dayjs");
 
 const TicketSchema = require("../../Schemas/Ticket");
@@ -45,29 +48,23 @@ module.exports = {
     }
 
     const reason = interaction.fields.getTextInputValue("ticket-joueur-close-modal-reason");
+    const fileName = `${channel.id}-${Date.now()}.html`;
+    const filePath = path.join("/var/www/", fileName);
 
-    const logs = [];
-
-    await channel.messages.fetch().then((message) => {
-      message.forEach((msg) =>
-        logs.push(
-          `[${msg.createdAt.toLocaleString()}] ${msg.author.tag}\n=> ${msg.content}${
-            msg.attachments.size
-              ? `\n[${msg.createdAt.toLocaleString()}] ${msg.author.tag}\n=> ${
-                  msg.attachments.first().url
-                }`
-              : ""
-          }`
-        )
-      );
+    const file = await discordTranscripts.createTranscript(channel, {
+      returnType: "buffer",
+      filename: fileName,
+      poweredBy: false,
     });
 
-    const file = [
-      {
-        attachment: Buffer.from(logs.join("\n")),
-        name: `${data.TicketID}-Transcript.txt`,
-      },
-    ];
+    fs.writeFile(filePath, file, (err) => {
+      if (err) {
+        console.error("Error saving HTML file:", err);
+        return;
+      }
+    });
+
+    const fileURL = `https://saves.rubby.app/${fileName}`;
 
     if (data.ModID === null) {
       data.ModID = "❌";
@@ -103,8 +100,8 @@ module.exports = {
     await guild.channels.cache
       .get(docs.Transcripts)
       .send({
+        content: `${fileURL}`,
         embeds: [transcriptEmbed],
-        files: file,
       })
       .catch((error) => {
         return;
@@ -112,8 +109,8 @@ module.exports = {
 
     try {
       await interaction.client.users.cache.get(data.OwnerID).send({
+        content: `${fileURL}`,
         embeds: [transcriptEmbed],
-        files: file,
       });
     } catch {
       await guild.channels.cache

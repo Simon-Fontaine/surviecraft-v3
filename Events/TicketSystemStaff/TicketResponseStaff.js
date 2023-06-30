@@ -104,11 +104,11 @@ module.exports = {
           let question;
           let userIp;
 
-          if (customId !== "Problème Discord") {
+          if (customId !== "Staff - Problème Discord") {
             identifiant = interaction.fields.getTextInputValue("username_input");
           }
           question = interaction.fields.getTextInputValue("question_input");
-          if (customId === "Problème Mot De Passe") {
+          if (customId === "Staff - Problème Mot De Passe") {
             userIp = interaction.fields.getTextInputValue("ip_input");
           }
 
