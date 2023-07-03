@@ -19,8 +19,13 @@ client.events = new Collection();
 client.setMaxListeners(0);
 
 const { connect } = require("mongoose");
+const os = require("os");
+
+const prod = os.platform() !== "win32";
+const databaseURI = prod ? client.config.prodMongoURI : client.config.mongoURI;
+
 const startTime = Date.now();
-connect(client.config.mongoURI, {}).then(() => {
+connect(databaseURI, {}).then(() => {
   const elapsedTime = Date.now() - startTime;
 
   const timer = elapsedTime.toFixed(2);
