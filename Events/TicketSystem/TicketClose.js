@@ -1,4 +1,8 @@
-const { ChatInputCommandInteraction, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
+const {
+  ChatInputCommandInteraction,
+  PermissionFlagsBits,
+  EmbedBuilder,
+} = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 const discordTranscripts = require("discord-html-transcripts");
@@ -19,7 +23,8 @@ module.exports = {
    */
   async execute(interaction) {
     const { guild, member, customId, channel } = interaction;
-    const { ViewChannel, SendMessages, ReadMessageHistory } = PermissionFlagsBits;
+    const { ViewChannel, SendMessages, ReadMessageHistory } =
+      PermissionFlagsBits;
 
     if (!interaction.isModalSubmit()) return;
 
@@ -28,28 +33,39 @@ module.exports = {
     const docs = await TicketSetup.findOne({ GuildID: guild.id });
     if (!docs) return;
 
-    const errorEmbed = new EmbedBuilder().setColor(0x00e1ff).setDescription(config.ticketError);
+    const errorEmbed = new EmbedBuilder()
+      .setColor(0x00e1ff)
+      .setDescription(config.ticketError);
     if (!guild.members.me.permissions.has((r) => r.id === IDs.guideRole))
-      return interaction.reply({ embeds: [errorEmbed], ephemeral: true }).catch((error) => {
-        return;
-      });
+      return interaction
+        .reply({ embeds: [errorEmbed], ephemeral: true })
+        .catch((error) => {
+          return;
+        });
 
     const nopermissionsEmbed = new EmbedBuilder()
       .setColor(0x00e1ff)
       .setDescription(config.noPermissions);
 
-    const data = await TicketSchema.findOne({ GuildID: guild.id, ChannelID: channel.id });
+    const data = await TicketSchema.findOne({
+      GuildID: guild.id,
+      ChannelID: channel.id,
+    });
     if (!data) return;
 
     if (!isStaff(member)) {
-      return interaction.reply({ embeds: [nopermissionsEmbed], ephemeral: true }).catch((error) => {
-        return;
-      });
+      return interaction
+        .reply({ embeds: [nopermissionsEmbed], ephemeral: true })
+        .catch((error) => {
+          return;
+        });
     }
 
-    const reason = interaction.fields.getTextInputValue("ticket-joueur-close-modal-reason");
-    const fileName = `${channel.id}-${Date.now()}.html`;
-    const filePath = path.join("/var/www/", fileName);
+    const reason = interaction.fields.getTextInputValue(
+      "ticket-joueur-close-modal-reason"
+    );
+    const fileName = `${channel.id}-${data.OwnerID}.html`;
+    const filePath = path.join(__dirname, "../../saves", fileName);
 
     const file = await discordTranscripts.createTranscript(channel, {
       returnType: "buffer",
@@ -84,8 +100,12 @@ module.exports = {
           `${emojis.moderator} **Modérateur:** ${data.ModTag} [\`${data.ModID}\`]`,
           `${emojis.target} **Détail:**`,
           `${emojis.space}${emojis.doubleRightArrow} Type: \`${data.Type}\``,
-          `${emojis.space}${emojis.doubleRightArrow} Overt le: <t:${dayjs(data.createdAt).unix()}>`,
-          `${emojis.space}${emojis.doubleRightArrow} Fermer le: <t:${dayjs().unix()}>`,
+          `${emojis.space}${emojis.doubleRightArrow} Overt le: <t:${dayjs(
+            data.createdAt
+          ).unix()}>`,
+          `${emojis.space}${
+            emojis.doubleRightArrow
+          } Fermer le: <t:${dayjs().unix()}>`,
         ].join("\n")
       )
       .addFields({
@@ -132,7 +152,10 @@ module.exports = {
       return;
     });
 
-    await TicketSchema.findOneAndDelete({ GuildID: guild.id, ChannelID: channel.id });
+    await TicketSchema.findOneAndDelete({
+      GuildID: guild.id,
+      ChannelID: channel.id,
+    });
 
     setTimeout(() => {
       channel.delete().catch((error) => {
